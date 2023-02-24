@@ -105,19 +105,11 @@ def test_use_case_lecture():
 def test_user_case_one():
     """_summary_
     """
-<<<<<<< Updated upstream
     # index annotation observation_states=[i,j]    
     observation_states = ['on-time','late'] 
 
     # index annotation hidden_states=[i,j]
     hidden_states = ['no-traffic','traffic']
-=======
-    # index annotation observation_states=[i,j]
-    observation_states = ['on-time', 'late']
-
-    # index annotation hidden_states=[i,j]
-    hidden_states = ['no-traffic', 'traffic']
->>>>>>> Stashed changes
 
     # PONDERING QUESTION: How would a user define/compute their own HMM instantiation inputs to decode the hidden states for their use case observations?
     use_case_one_data = np.load('./data/UserCase-One.npz')
@@ -166,7 +158,4 @@ def test_user_case_three():
     """_summary_
     """
     # TODO
-<<<<<<< Updated upstream
-=======
     pass
->>>>>>> Stashed changes
