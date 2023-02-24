@@ -8,7 +8,7 @@ dynamic=["version"]
 
 [project]
 name = "models"
-authors = [{name = "Andrew Blair", email = "andrew.blair@ucsf.edu", name = "Hannah Takasuka", email = "hannah.takasuka@ucsf.edu"}]
+authors = [{name = "Andrew Blair", email = "andrew.blair@ucsf.edu"}, {name = "Hannah Takasuka", email = "hannah.takasuka@ucsf.edu"}]
 license = {file = "LICENSE"}
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
