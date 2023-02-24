@@ -1,5 +1,5 @@
-![BuildStatus](https://github.com/bmi203-2023/hw6-hmm-viterbi/actions/workflows/main.yml/badge.svg?)
-[![Documentation Status](https://readthedocs.org/projects/hw6-hmm-viterbi/badge/?version=latest)](https://hw6-hmm-viterbi.readthedocs.io/en/latest/?badge=latest)
+![BuildStatus](https://github.com/hanmochturt/hw6-hmm-viterbi-takasuka/actions/workflows/test.yml/badge.svg?)
+[![Documentation Status](https://readthedocs.org/projects/hw6-hmm-viterbi-takasuka/badge/?version=latest)](https://hw6-hmm-viterbi-takasuka.readthedocs.io/en/latest/?badge=latest)
 
 # Lab 6: Inferring CRE Selection Strategies from Chromatin Regulatory State Observations using a Hidden Markov Model and the Viterbi Algorithm
 
@@ -96,12 +96,12 @@ def test_deliverable():
 
 We recommend completing these deliverables in the listed order:
 
-- [ ] Implement the Viterbi algorithm in models.decoders.ViterbiAlgorithm found hw6-hmm-viterbi/src/models/decoders.py.
+- [x] Implement the Viterbi algorithm in models.decoders.ViterbiAlgorithm found hw6-hmm-viterbi/src/models/decoders.py.
 
-- [ ] Complete the docstrings in submodules models.hmm and models.decoders by following the pep257 format including pep484 type hints. 
+- [x] Complete the docstrings in submodules models.hmm and models.decoders by following the pep257 format including pep484 type hints. 
     - Please note, Visual Studio Code supports an extension called [autoDocstring](https://github.com/NilsJPWerner/autoDocstring/blob/HEAD/docs/pep257.md), which will help by creating an automated template for each class method and function.
 
-- [ ] Develop **two** user case unit tests that follow a testable hypothesis that you design for the Viterbi algorithm. State your hypothesis in the documentation.
+- [x] Develop **two** user case unit tests that follow a testable hypothesis that you design for the Viterbi algorithm. State your hypothesis in the documentation.
     - For example, in the lecture, we reviewed an example where the observations were the dedication of a rotating graduate student, and the hidden states were the rotation project's NIH funding.
 
 **Decision Questions, Reminders, & Important Notes**
@@ -156,9 +156,9 @@ def test_user_case_one():
 
 ## ReadTheDocs
 
-- [ ] Build the project deliverable's ReadTheDoc (RTD).
+- [x] Build the project deliverable's ReadTheDoc (RTD).
 
-- [ ] **Short Answer**: Evaluate the project deliverable and briefly answer the speculative questions in the RTD, with an eye to the project's limitations as related to the theory, model design, experimental data (i.e., biology and technology). Please navigate to hw6-hmm-viterbi/docs/index.rst and answer the questions under the sections titled **Functional Characterization Report**. 
+- [x] **Short Answer**: Evaluate the project deliverable and briefly answer the speculative questions in the RTD, with an eye to the project's limitations as related to the theory, model design, experimental data (i.e., biology and technology). Please navigate to hw6-hmm-viterbi/docs/index.rst and answer the questions under the sections titled **Functional Characterization Report**. 
 
 ```Markdown
 1. Speculate how the progenitor cardiomyocyte Hidden Markov Model and primitive cardiomyocyte regulatory observations and inferred hidden states might change if the model design's sliding window (default set to 60 kilobases) were to increase or decrease?
