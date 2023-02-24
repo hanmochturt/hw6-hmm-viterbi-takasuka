@@ -1,6 +1,6 @@
 import numpy as np
 class HiddenMarkovModel:
-    """Saves Hidden Markov Model state names and probabilities
+    """Creates an object with Hidden Markov Model state names and probabilities
     """
 
     def __init__(self, observation_states: np.ndarray, hidden_states: np.ndarray,

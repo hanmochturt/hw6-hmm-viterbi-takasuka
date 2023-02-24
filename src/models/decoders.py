@@ -1,25 +1,28 @@
 import copy
 import numpy as np
 class ViterbiAlgorithm:
-    """_summary_
+    """Determines the most probable hidden state sequence based on set probabilities and an input
+    observed state sequence
     """    
 
     def __init__(self, hmm_object):
-        """_summary_
+        """Collect prior, transition, and emission probabilities, hidden and observation state
+        names, and dictionaries that index state names
 
         Args:
-            hmm_object (_type_): _description_
+            hmm_object (_type_): probabilities, state names, and index state name dictionaries
         """              
         self.hmm_object = hmm_object
 
     def best_hidden_state_sequence(self, decode_observation_states: np.ndarray) -> np.ndarray:
-        """_summary_
+        """Find the most probable hidden state sequence based on known prior, transition,
+        and emission probabilities
 
         Args:
             decode_observation_states (np.ndarray): observation state sequence
 
         Returns:
-            np.ndarray: _description_
+            np.ndarray: most probable sequence of hidden states
         """        
         
         # Initialize path (i.e., np.arrays) to store the hidden sequence states returning the maximum probability
@@ -39,10 +42,7 @@ class ViterbiAlgorithm:
         first_obs_index = self.hmm_object.observation_states_dict[decode_observation_states[0]]
         max_hidden_state_probabilities[0, :] = delta[:, first_obs_index]
         delta = np.reshape(delta[:, first_obs_index], (-1, 1))  # from each hidden state
-
         #delta = delta / np.sum(delta)
-
-        #print(ps_this_observation, "p first observation")
 
         # For each observation state to decode, select the hidden state sequence with the highest probability (i.e., Viterbi trellis)
         for trellis_node in range(1, len(decode_observation_states)):
@@ -64,13 +64,10 @@ class ViterbiAlgorithm:
             # hi1 -> o1, hi1 -> hi2, hi2 -> o2
             delta = np.reshape(np.amax(product_of_delta_and_transition_emission, axis=0), (-1, 1))
             #delta = delta / np.sum(delta)
-            # print(ps_this_observation, "ps this obs")
             # Select the hidden state sequence with the maximum probability
             max_probabilities_hidden = np.amax(product_of_delta_and_transition_emission, axis=0)
-            #print(max_probabilities_hidden, "max prob")
             max_probabilities_indices = np.argmax(product_of_delta_and_transition_emission, axis=0)
             path[trellis_node, :] = max_probabilities_indices
-            #print(max_probabilities_indicies, "max prob inx")
             max_hidden_state_probabilities[trellis_node, :] = max_probabilities_hidden
 
             # Update best path
@@ -79,11 +76,11 @@ class ViterbiAlgorithm:
             # Set best hidden state sequence in the best_path np.ndarray THEN copy the best_path to path
             #path = best_path.copy()
         # Select the last hidden state, given the best path (i.e., maximum probability)
-        # print(max_hidden_state_probabilities)
-        last_max_hidden_probability_index = np.argmax(max_hidden_state_probabilities[-1, :])
+        print(max_hidden_state_probabilities)
+        last_max_hidden_probability_index = int(np.argmax(max_hidden_state_probabilities[-1, :]))
         best_path_hidden_indices_list = [last_max_hidden_probability_index]
         previous_hidden_index = last_max_hidden_probability_index
-        #print(path)
+        print(path)
         for t in range(len(decode_observation_states)-2, -1, -1):
             best_path_hidden_indices_list.insert(0, path[t+1, previous_hidden_index])
             previous_hidden_index = int(path[t+1, previous_hidden_index])
@@ -91,4 +88,5 @@ class ViterbiAlgorithm:
 
         best_hidden_state_path = np.array(best_path_hidden_indices_list)
         best_hidden_state_path = np.vectorize(self.hmm_object.hidden_states_dict.get)(best_hidden_state_path)
+        print(best_hidden_state_path)
         return best_hidden_state_path
